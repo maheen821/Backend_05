@@ -1,0 +1,230 @@
+/* =====================
+   Base
+===================== */
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Modern blue gradient */
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stack form & table */
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px;
+  color: #000; /* Font color black */
+}
+
+/* =====================
+   Card Container (Form)
+===================== */
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.15); /* Frosted glass */
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px 35px;
+  box-shadow: 0 35px 70px rgba(0,0,0,0.25);
+  animation: fadeUp 0.6s ease;
+  box-sizing: border-box;
+  margin-bottom: 50px; /* Space below card before table */
+}
+
+/* Card animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   Headings
+===================== */
+h2 {
+  text-align: center;
+  color: #000; /* Black heading */
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.sub {
+  text-align: center;
+  color: #333; /* Dark gray subtitle */
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* =====================
+   Form Inputs
+===================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.2); /* Slightly darker border */
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #000; /* Input text black */
+  transition: 0.3s ease;
+  box-sizing: border-box;
+  backdrop-filter: blur(6px);
+}
+
+input::placeholder,
+select::placeholder {
+  color: #555; /* Darker placeholder */
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #000; /* Black focus border */
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.15);
+  color: #000;
+}
+
+/* =====================
+   Button
+===================== */
+button {
+  padding: 15px;
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.35s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(75, 92, 255,0.45);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* =====================
+   Table
+===================== */
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+  margin-top: 30px; /* Space from form */
+}
+
+table {
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  table-layout: auto;
+  border: 2px solid rgba(0,0,0,0.1);
+}
+
+thead th {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  padding: 20px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+tbody td {
+  padding: 18px 16px;
+  text-align: center;
+  font-size: 15px;
+  color: #000; /* Table font black */
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+tbody tr:nth-child(even) td {
+  background: #f3f4ff;
+}
+
+tr:hover td {
+  background: #e0e4ff;
+  transform: scale(1.01);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Action Buttons */
+.action-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.edit-btn { background: #ffb703; }
+.edit-btn:hover { transform: scale(1.25) rotate(-5deg); }
+.delete-btn { background: #dc3545; }
+.delete-btn:hover { transform: scale(1.25) rotate(5deg); }
+
+/* =====================
+   Responsive Breakpoints
+===================== */
+@media (max-width: 1024px) {
+  table, th, td { font-size: 15px; }
+  td, th { padding: 14px 12px; }
+  .edit-btn, .delete-btn { width: 44px; height: 44px; font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+  body { flex-direction: column; align-items: center; }
+  table, th, td { font-size: 14px; }
+  td, th { padding: 12px 10px; }
+  .edit-btn, .delete-btn { width: 40px; height: 40px; font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  table, th, td { font-size: 13px; padding: 10px 8px; }
+  .edit-btn, .delete-btn { width: 36px; height: 36px; font-size: 16px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+
+@media (max-width: 550px) {
+  .card { width: 100%; padding: 30px; }
+}
